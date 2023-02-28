@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<form method="post">
+
+    <div class="row">
+    <label for="password" style="font-size:25px;" class="mx-auto">Please type your name Here</label>
+    </div>
+    <div class="row">
+        <input type="text" name="signiture" class="mx-auto mt-5 input-lg" placeholder="Name" id="password" style="width: 400px; height: 65px; border: 3px solid #999999; padding: 5px;font-size:30px;letter-spacing:0.10em; text-align: center;font-weight: bold;" maxlength="17">
+    </div>
+    <div class="row">
+    <button type="submit" class="btn btn-primary p-2 mt-5 mx-auto" style="font-size:25px;">Confirm</button>
+    </div>
+
+    </form>
+
+{% endblock %}

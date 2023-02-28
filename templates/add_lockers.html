@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h3>Add Lockers to Branch</h3>
+<form action="add_lockers" method="POST">
+    <div class="form-group">
+        <label for="Location">Location</label>
+        <input type="text" class="form-control" name="Location" id="Location" placeholder="ZLS044001">
+
+    </div>
+  <div class="form-group" >
+    <label for="Branch">Branch</label>
+    <input type="text" class="form-control" name="Branch" id="Branch" placeholder="JAXD044">
+  </div>
+
+    <button type="submit" class="btn btn-sm btn-info">Confirm</button>
+</form>
+
+<div class="mt-5" >
+    <p>Location Rule:ZLS044001<br>
+        ZL:Initial for zlocker, fixed<br>
+        S: locker size. S: small, M:medium, L: large<br>
+        044:three digit branch code<br>
+        001:locker unique id<br>
+    </p>
+</div>
+
+
+
+
+{% endblock %}

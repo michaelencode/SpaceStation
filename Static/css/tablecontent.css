@@ -1,0 +1,22 @@
+table-locker-content {
+        width: 1300px;
+        margin: 50px auto;
+        text-align: center;
+    }
+
+
+    tr:hover {background-color: #d9d9d9;}
+    tr:nth-child(even) {background-color: #f2f2f2;}
+    th {
+  background-color: #58b3bf;
+  color: white;
+  cursor: pointer;
+
+}
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+  width: 150px;
+}
+

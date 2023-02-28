@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-light">
+  <ul class="navbar-nav">
+      <li class="nav-item">
+      <a class="nav-link" href="{{ url_for('login')}}">Welcome Please login first</a>
+    </li>
+       </ul>
+</nav>
+
+<div class="container-md">
+    <div class="jumbotron">
+    <h2>xxxxx</h2>
+
+  </div>
+    {% for message in get_flashed_messages(with_categories=False,category_filter=("info")) %}
+        <div class="alert alert-success">{{message}}</div>
+    {% endfor %}
+    {% for message in get_flashed_messages(with_categories=False,category_filter=("warning")) %}
+        <div class="alert alert-warning">{{message}}</div>
+    {% endfor %}
+
+</div>
+
+</body>
+</html>
+<div class="container-md">
+{% macro render_field(field) %}
+  <dt>{{ field.label }}:
+  <dd>{{ field(**kwargs)|safe }}
+  {% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </dd>
+{% endmacro %}
+<div class="row">
+    <div class="w-50 mx-auto">
+<!-- 登录表单 -->
+<form method="POST">
+    {{ form.csrf_token }}
+    {{ render_field(form.username) }}
+    {{ render_field(form.password) }}
+    {% if emsg %}  <!-- 如果有错误信息 则显示 -->
+        <h3> {{ emsg }}</h3>
+    {% endif %}
+    <input type="submit" value="Login">
+</form>
+    </div>
+</div>
+</div>

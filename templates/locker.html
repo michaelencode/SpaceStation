@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="table-locker-content">
+    <table id="table-list">
+        <thead>
+        <tr>
+        <th onclick="sortTable(0)">Location</th>
+        <th onclick="sortTable(1)">Branch</th>
+        <th onclick="sortTable(2)">Avail</th>
+        <th onclick="sortTable(3)">OID</th>
+        <th onclick="sortTable(4)">Passcode</th>
+        <th onclick="sortTable(5)">Stage time</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for info in locker_info %}
+        <tr>
+        <td>{{info[0]}}</td>
+        <td>{{info[1]}}</td>
+        <td class="editable">{{info[2]}}</td>
+        <td class="editable">{{info[3]}}</td>
+        <td>{{info[4]}}</td>
+        <td class="editable">{{info[5]}}</td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+    <script src="/static/js/bootstable.js"></script>
+
+
+</div>
+
+<a class="btn btn-info btn-sm mt-5" href='{{ url_for("add_lockers")}}'>Add Lockers</a>
+
+<script src="/static/js/tablesort.js"></script>
+
+{% endblock %}
